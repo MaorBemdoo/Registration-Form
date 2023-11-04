@@ -34,11 +34,11 @@ function App() {
   const inputRefContainer = useRef()
 
   const submitHandler = () => {
-    if(user.firstname.trim() == 0 && user.lastname.trim() == 0 && user.phonenum.trim() == 0 && user.regnum.trim() == 0){
+    if(user.firstname.trim() == "" && user.lastname.trim() == "" && user.phonenum.trim() == "" && user.regnum.trim() == ""){
       setError({...error, universal: true})
-    } else if(user.firstname.trim() == 0){
+    } else if(user.firstname.trim() == ""){
       setError({...error, firstname: true})
-    } else if(user.lastname.trim() == 0){
+    } else if(user.lastname.trim() == ""){
       setError({...error, lastname: true})
     }
   }
