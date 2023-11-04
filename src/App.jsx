@@ -40,6 +40,18 @@ function App() {
       setError({...error, firstname: true})
     } else if(user.lastname.trim() == ""){
       setError({...error, lastname: true})
+    } else if(user.phonenum.trim() == "" || !(phoneNumRegex.test(phonenum))){
+      setError({...error, phonenum: true})
+    }
+  }
+
+  const phoneNumErrHandler = (phonenum) => {
+    const phoneNumRegex = /^(0|\+\d{1,4})\d{10}$/g
+
+    if(phonenum.trim() == ""){
+      return "Phone number is required"
+    } else if(!phoneNumRegex.test(phonenum)){
+      return "Phone number is invalid"
     }
   }
 
@@ -70,7 +82,7 @@ function App() {
       <FormControl variant="outlined"color="success" error={error?.phonenum} fullWidth>
         <InputLabel htmlFor="phonenum">Phone Number</InputLabel>
         <OutlinedInput id="phonenum" label="Phone Number" ref={inputRefContainer} value={user.phonenum} onChange={(e) => setUser({...user,phonenum: e.target.value})} aria-describedby="phonenum-text"/>
-        <FormHelperText id="phonenum-text" hidden={!(error?.phonenum)}>Phone number is invalid</FormHelperText>
+        <FormHelperText id="phonenum-text" hidden={!(error?.phonenum)}>{phoneNumErrHandler(user.phonenum)}</FormHelperText>
       </FormControl>
       <FormControl variant="outlined" color="success" error={error?.regnum} fullWidth>
         <InputLabel htmlFor="regnum">Registration Number</InputLabel>
