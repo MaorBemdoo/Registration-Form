@@ -33,7 +33,7 @@ function App() {
   const [error, setError] = useState(false)
 
   const submitHandler = () => {
-    if(user.firstname.trim() == 0){
+    if(user.firstname.trim() == 0 || user.lastname.trim() == 0 || user.othername.trim() == 0){
       setError({...error, firstname: true})
     }
   }
