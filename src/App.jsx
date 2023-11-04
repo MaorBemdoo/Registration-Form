@@ -25,6 +25,7 @@ function App() {
   return (
     <Card component="form" elevation={3} variant="outlined" sx={CardStyle}>
       <GlobalStyles/>
+      <Card variant="outlined" sx={{backgroundColor: "#d41d1d", padding: "1em", width: "calc(400px - 2em)"}} hidden>All fields are required</Card>
       <FormControl variant="outlined" color="success" fullWidth>
         <InputLabel htmlFor="firstname">First Name</InputLabel>
         <OutlinedInput id="firstname" label="First Name" aria-describedby="firstname-text"/>
