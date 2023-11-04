@@ -17,7 +17,7 @@ function App() {
     alignItems: "center",
     justifyContent: "space-between",
     padding: "1em",
-    width: "500px",
+    width: "400px",
     height: "400px"
   }
 
