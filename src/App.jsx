@@ -16,7 +16,7 @@ function App() {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: "2em",
+    padding: "1em",
     width: "500px",
     height: "400px"
   }
@@ -24,25 +24,25 @@ function App() {
   return (
     <Card component="form" elevation={3} variant="outlined" sx={CardStyle}>
       <GlobalStyles/>
-      <FormControl variant="outlined">
+      <FormControl variant="outlined" color="success" fullWidth>
         <InputLabel htmlFor="firstname">First Name</InputLabel>
-        <OutlinedInput id="firstname" label="First Name" color="success"/>
+        <OutlinedInput id="firstname" label="First Name"/>
       </FormControl>
-      <FormControl variant="outlined">
+      <FormControl variant="outlined" color="success" fullWidth>
         <InputLabel htmlFor="lastname">Last Name</InputLabel>
-        <OutlinedInput id="lastname" label="Last Name" color="success"/>
+        <OutlinedInput id="lastname" label="Last Name"/>
       </FormControl>
-      <FormControl variant="outlined">
+      <FormControl variant="outlined" color="success" fullWidth>
         <InputLabel htmlFor="othername">Other Names</InputLabel>
-        <OutlinedInput id="othername" label="Other Names" color="success"/>
+        <OutlinedInput id="othername" label="Other Names"/>
       </FormControl>
-      <FormControl variant="outlined">
+      <FormControl variant="outlined"color="success" fullWidth>
         <InputLabel htmlFor="phonenum">Phone Number</InputLabel>
-        <OutlinedInput id="phonenum" label="Phone Number" color="success"/>
+        <OutlinedInput id="phonenum" label="Phone Number"/>
       </FormControl>
-      <FormControl variant="outlined">
+      <FormControl variant="outlined" color="success" fullWidth>
         <InputLabel htmlFor="regnum">Registration Number</InputLabel>
-        <OutlinedInput id="regnum" label="Registration Number" color="success"/>
+        <OutlinedInput id="regnum" label="Registration Number"/>
       </FormControl>
       <Button variant="contained" color="success">Submit</Button>
     </Card>

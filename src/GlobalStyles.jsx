@@ -6,6 +6,6 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
     }
     body{
-        background-color: aqua;
+        background-color: aliceblue;
     }
 `
