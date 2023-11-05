@@ -33,6 +33,9 @@ function App() {
   const [error, setError] = useState(false)
   const inputRefContainer = useRef()
 
+  const phoneNumRegex = /^(0|\+\d{1,4})\d{10}$/g
+  const regNumRegex = /^[A-Z]{3}\/\d{2}\/\d{2}\/\d{2}\/\d{4}$/g
+
   const submitHandler = () => {
     if(user.firstname.trim() == "" && user.lastname.trim() == "" && user.phonenum.trim() == "" && user.regnum.trim() == ""){
       setError({...error, universal: true})
@@ -40,18 +43,27 @@ function App() {
       setError({...error, firstname: true})
     } else if(user.lastname.trim() == ""){
       setError({...error, lastname: true})
-    } else if(user.phonenum.trim() == "" || !(phoneNumRegex.test(phonenum))){
+    } else if(user.phonenum.trim() == "" || !(phoneNumRegex.test(user.phonenum))){
       setError({...error, phonenum: true})
+    } else if(user.regnum.trim() == "" || !(regNumRegex.test(user.regnum))){
+      setError({...error, regnum: true})
     }
   }
 
   const phoneNumErrHandler = (phonenum) => {
-    const phoneNumRegex = /^(0|\+\d{1,4})\d{10}$/g
-
     if(phonenum.trim() == ""){
       return "Phone number is required"
     } else if(!phoneNumRegex.test(phonenum)){
       return "Phone number is invalid"
+    }
+  }
+
+  const regNumErrHandler = (regnum) => {
+
+    if(regnum.trim() == ""){
+      return "Registration number is required"
+    } else if(!phoneNumRegex.test(regnum)){
+      return "Registration number is invalid"
     }
   }
 
@@ -87,7 +99,7 @@ function App() {
       <FormControl variant="outlined" color="success" error={error?.regnum} fullWidth>
         <InputLabel htmlFor="regnum">Registration Number</InputLabel>
         <OutlinedInput id="regnum" label="Registration Number" ref={inputRefContainer} value={user.regnum} onChange={(e) => setUser({...user,regnum: e.target.value})} aria-describedby="regnum-text"/>
-        <FormHelperText id="regnum-text" hidden={!(error?.regnum)}>Registration number is required</FormHelperText>
+        <FormHelperText id="regnum-text" hidden={!(error?.regnum)}>{regNumErrHandler(user.regnum)}</FormHelperText>
       </FormControl>
       <Button variant="contained" color="success" onClick={submitHandler}>Submit</Button>
     </Card>
