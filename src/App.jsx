@@ -98,7 +98,7 @@ function App() {
       </FormControl>
       <FormControl variant="outlined" color="success" error={error?.regnum} fullWidth>
         <InputLabel htmlFor="regnum">Registration Number</InputLabel>
-        <OutlinedInput id="regnum" label="Registration Number" ref={inputRefContainer} value={user.regnum} onChange={(e) => setUser({...user,regnum: e.target.value})} aria-describedby="regnum-text"/>
+        <OutlinedInput id="regnum" label="Registration Number" ref={inputRefContainer} value={user.regnum} onChange={(e) => setUser({...user,regnum: e.target.value.toUpperCase()})} aria-describedby="regnum-text"/>
         <FormHelperText id="regnum-text" hidden={!(error?.regnum)}>{regNumErrHandler(user.regnum)}</FormHelperText>
       </FormControl>
       <Button variant="contained" color="success" onClick={submitHandler}>Submit</Button>
