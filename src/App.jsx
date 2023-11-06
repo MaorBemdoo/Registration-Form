@@ -31,7 +31,7 @@ function App() {
     regnum: ""
   })
   const [error, setError] = useState(false)
-  const inputRefContainer = useRef()
+  const inputRefContainer = useRef(null)
 
   const phoneNumRegex = /^(0|\+\d{1,4})\d{10}$/g
   const regNumRegex = /^[A-Z]{3}\/\d{2}\/\d{2}\/\d{2}\/\d{4}$/g
