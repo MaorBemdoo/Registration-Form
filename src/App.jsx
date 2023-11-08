@@ -47,6 +47,10 @@ function App() {
     // validate all fields
     if(user.firstname.trim() == "" && user.lastname.trim() == "" && user.phonenum.trim() == "" && user.regnum.trim() == ""){
       setUniError(true)
+      setFnError(false)
+      setLnError(false)
+      setPnError(false)
+      setRnError(false)
       isValid = false;
     } else{
       setUniError(false)
@@ -117,12 +121,12 @@ function App() {
     <Card component="form" variant="outlined" sx={CardStyle}>
       <GlobalStyles/>
       <Card variant="outlined" sx={{backgroundColor: "#d41d1d", padding: "1em", width: "calc(400px - 2em)"}} hidden={!(uniError)}>All fields are required</Card>
-      <FormControl variant="outlined" color="success" error={fnError} fullWidth>
+      <FormControl variant="outlined" color="success" error={fnError} fullWidth required>
         <InputLabel htmlFor="firstname">First Name</InputLabel>
         <OutlinedInput id="firstname" label="First Name" ref={inputRefContainer} value={user.firstname} onChange={(e) => setUser({...user,firstname: e.target.value})} aria-describedby="firstname-text"/>
         <FormHelperText id="firstname-text" hidden={!(fnError)}>First name is required</FormHelperText>
       </FormControl>
-      <FormControl variant="outlined" color="success" error={lnError} fullWidth>
+      <FormControl variant="outlined" color="success" error={lnError} fullWidth required>
         <InputLabel htmlFor="lastname">Last Name</InputLabel>
         <OutlinedInput id="lastname" label="Last Name" ref={inputRefContainer} value={user.lastname} onChange={(e) => setUser({...user,lastname: e.target.value})} aria-describedby="lastname-text"/>
         <FormHelperText id="lastname-text" hidden={!(lnError)}>Last name is required</FormHelperText>
@@ -131,12 +135,12 @@ function App() {
         <InputLabel htmlFor="othername">Other Names</InputLabel>
         <OutlinedInput id="othername" label="Other Names" ref={inputRefContainer} value={user.othername} onChange={(e) => setUser({...user,othername: e.target.value})} aria-describedby="othername-text"/>
       </FormControl>
-      <FormControl variant="outlined"color="success" error={pnError} fullWidth>
+      <FormControl variant="outlined"color="success" error={pnError} fullWidth required>
         <InputLabel htmlFor="phonenum">Phone Number</InputLabel>
         <OutlinedInput id="phonenum" label="Phone Number" ref={inputRefContainer} value={user.phonenum} onChange={(e) => setUser({...user,phonenum: e.target.value})} aria-describedby="phonenum-text"/>
         <FormHelperText id="phonenum-text" hidden={!(pnError)}>{phoneNumErrHandler(user.phonenum)}</FormHelperText>
       </FormControl>
-      <FormControl variant="outlined" color="success" error={rnError} fullWidth>
+      <FormControl variant="outlined" color="success" error={rnError} fullWidth required>
         <InputLabel htmlFor="regnum">Registration Number</InputLabel>
         <OutlinedInput id="regnum" label="Registration Number" ref={inputRefContainer} value={user.regnum} onChange={(e) => setUser({...user,regnum: e.target.value.toUpperCase()})} aria-describedby="regnum-text"/>
         <FormHelperText id="regnum-text" hidden={!(rnError)}>{regNumErrHandler(user.regnum)}</FormHelperText>
