@@ -108,11 +108,15 @@ function App() {
     }
   }
 
-  // useEffect(() => {
-  //   inputRefContainer.current.onchange = () => {
-  //     setError(false)
-  //   }
-  // })
+  useEffect(() => {
+    inputRefContainer.current.onchange = () => {
+      setUniError(false)
+      setFnError(false)
+      setLnError(false)
+      setPnError(false)
+      setRnError(false)
+    }
+  }, [])
 
   return (
     <Card component="form" variant="outlined" sx={CardStyle}>
