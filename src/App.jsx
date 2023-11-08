@@ -56,7 +56,7 @@ function App() {
     if(user.firstname.trim() == ""){
       setFnError(true)
       isValid = false;
-    } if(user.lastname.trim() == ""){
+    } else if(user.lastname.trim() == ""){
       setLnError(true)
       isValid = false;
     } else{
