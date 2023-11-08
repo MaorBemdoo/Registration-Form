@@ -9,4 +9,10 @@ export const GlobalStyles = createGlobalStyle`
         background-color: aliceblue;
         font-family: 'Roboto', sans-serif;
     }
+    #root{
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        width: 100vw;
+    }
 `
