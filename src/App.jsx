@@ -119,7 +119,7 @@ function App() {
   }, [])
 
   return (
-    <Card component="form" variant="outlined" sx={CardStyle}>
+    <Card component="form" method="post" variant="outlined" sx={CardStyle}>
       <GlobalStyles/>
       <Card variant="outlined" sx={{backgroundColor: "#d41d1d", padding: "1em", width: "calc(400px - 2em)"}} hidden={!(uniError)}>All fields are required</Card>
       <FormControl variant="outlined" color="success" error={fnError} fullWidth required>
