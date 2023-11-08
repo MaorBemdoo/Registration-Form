@@ -17,7 +17,7 @@ function App() {
     justifyContent: "space-between",
     padding: "1em",
     width: "400px",
-    height: "450px"
+    height: window.innerWidth <= 380 ? "80%" : "450px"
   }
 
   const [user, setUser] = useState({
