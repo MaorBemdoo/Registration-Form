@@ -46,8 +46,8 @@ function App() {
     // validate all fields
     if(user.firstname.trim() == "" && user.lastname.trim() == "" && user.phonenum.trim() == "" && user.regnum.trim() == ""){
       setUniError(true)
-      return;
       isValid = false;
+      return;
     } else{
       setUniError(false)
     }
