@@ -121,7 +121,7 @@ function App() {
   return (
     <Card component="form" method="post" variant="outlined" sx={CardStyle}>
       <GlobalStyles/>
-      <Card variant="outlined" sx={{backgroundColor: "#d41d1d", padding: "1em", width: "calc(400px - 2em)"}} hidden={!(uniError)}>All fields with * are required</Card>
+      <Card variant="outlined" sx={{color: "white", backgroundColor: "#d41d1d", padding: "1em", width: "calc(400px - 2em)"}} hidden={!(uniError)}>All fields with * are required</Card>
       <FormControl variant="outlined" color="success" error={fnError} fullWidth required>
         <InputLabel htmlFor="firstname">First Name</InputLabel>
         <OutlinedInput id="firstname" label="First Name" ref={inputRefContainer} value={user.firstname} onChange={(e) => setUser({...user,firstname: e.target.value})} aria-describedby="firstname-text"/>
