@@ -87,7 +87,13 @@ function App() {
   const submitHandler = (e) => {
     e.preventDefault()
     if(validForm()){
-      console.log("Submitted form successfully");
+      setUser({
+        firstname: "",
+        lastname: "",
+        othername: "",
+        phonenum: "",
+        regnum: ""
+      })
     }
   }
 
