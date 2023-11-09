@@ -56,12 +56,9 @@ function App() {
     if(user.firstname.trim() == ""){
       setFnError(true)
       isValid = false;
-    } else if(user.lastname.trim() == ""){
+    } if(user.lastname.trim() == ""){
       setLnError(true)
       isValid = false;
-    } else{
-      setFnError(false)
-      setLnError(false)
     }
 
     // validate phonenum
