@@ -48,8 +48,6 @@ function App() {
       setUniError(true)
       isValid = false;
       return;
-    } else{
-      setUniError(false)
     }
 
     // validate name
@@ -65,16 +63,12 @@ function App() {
     if(user.phonenum.trim() == "" || !(phoneNumRegex.test(user.phonenum))){
       setPnError(true)
       isValid = false;
-    } else{
-      setPnError(false)
     }
 
     // validate regnum
     if(user.regnum.trim() == "" || !(regNumRegex.test(user.regnum))){
       setRnError(true)
       isValid = false;
-    } else{
-      setRnError(false)
     }
 
     return isValid
