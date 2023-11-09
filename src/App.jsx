@@ -8,6 +8,8 @@ import {GlobalStyles} from "./GlobalStyles"
 import { useState, useRef, useEffect } from "react"
 import FormLabel from '@mui/material/FormLabel'
 import Modal from '@mui/material/Modal'
+import {CheckCircleOutline} from "@mui/icons-material"
+import Typography from '@mui/material/Typography'
 
 function App() {
 
@@ -139,7 +141,11 @@ function App() {
   return (
     <Card component="form" method="post" variant="outlined" sx={CardStyle}>
       <GlobalStyles/>
-      <Modal open="true" children={<Card variant="outlined" sx={{width: "400px", height: "400px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>Hey</Card>}/>
+      <Modal open="true" children={
+        <Card variant="outlined" sx={{textAlign: "center", width: "400px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>
+          <CheckCircleOutline sx={{fontSize: "4rem", fill: "#0f7230"}}/>
+          <Typography variant="h5" color="initial">Congratulations, <br/>You have completed the registration</Typography>
+        </Card>}/>
       <Card variant="outlined" sx={{color: "white", backgroundColor: "#3a43c0", width: "400px"}}></Card>
       <Card variant="outlined" sx={{color: "white", backgroundColor: "#d41d1d", padding: "1em", width: "calc(400px - 2em)"}} hidden={!(uniError)}>All fields with * are required</Card>
       <FormControl variant="outlined" color="success" error={fnError || uniError} fullWidth required>
