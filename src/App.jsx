@@ -142,9 +142,10 @@ function App() {
     <Card component="form" method="post" variant="outlined" sx={CardStyle}>
       <GlobalStyles/>
       <Modal open="true" children={
-        <Card variant="outlined" sx={{textAlign: "center", width: "400px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>
-          <CheckCircleOutline sx={{fontSize: "4rem", fill: "#0f7230"}}/>
-          <Typography variant="h5" color="initial">Congratulations, <br/>You have completed the registration</Typography>
+        <Card variant="outlined" sx={{padding: "2rem", textAlign: "center", width: "400px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", overflow: "visible"}}>
+          <CheckCircleOutline sx={{fontSize: "6rem", fill: "#0f7230", transform: "translateY(-100%)"}}/>
+          <Typography variant="h4" color="initial" marginTop={-10} paddingBottom={1}>Congratulations,</Typography>
+          <Typography variant="h5" color="initial">You have completed the registration</Typography>
         </Card>}/>
       <Card variant="outlined" sx={{color: "white", backgroundColor: "#3a43c0", width: "400px"}}></Card>
       <Card variant="outlined" sx={{color: "white", backgroundColor: "#d41d1d", padding: "1em", width: "calc(400px - 2em)"}} hidden={!(uniError)}>All fields with * are required</Card>
