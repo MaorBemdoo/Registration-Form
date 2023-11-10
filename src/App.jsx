@@ -99,11 +99,25 @@ function App() {
       .then(() => {
         isSuccess(true)
         isLoading(false)
+        setUser({
+          firstname: "",
+          lastname: "",
+          othername: "",
+          phonenum: "",
+          regnum: ""
+        })
         isError(false)
       })
       .catch(() => {
         isSuccess(true)
         isLoading(false)
+        setUser({
+          firstname: "",
+          lastname: "",
+          othername: "",
+          phonenum: "",
+          regnum: ""
+        })
         isError(true)
       })
   }
@@ -111,13 +125,7 @@ function App() {
   const submitHandler = (e) => {
     e.preventDefault()
     if(validForm()){
-      setUser({
-        firstname: "",
-        lastname: "",
-        othername: "",
-        phonenum: "",
-        regnum: ""
-      })
+      fnRe
       isLoading(true)
       emailFunc()
     }
