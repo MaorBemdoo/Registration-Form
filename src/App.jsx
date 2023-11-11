@@ -12,7 +12,7 @@ import {CheckCircleOutline, WarningOutlined} from "@mui/icons-material"
 import Typography from '@mui/material/Typography'
 import CircularProgress from '@mui/material/CircularProgress'
 import emailjs from '@emailjs/browser';
-import {v4, uuidv4} from "uuid"
+import {v4 as uuidv4} from "uuid"
 
 function App() {
 
