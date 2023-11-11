@@ -12,6 +12,7 @@ import {CheckCircleOutline, WarningOutlined} from "@mui/icons-material"
 import Typography from '@mui/material/Typography'
 import CircularProgress from '@mui/material/CircularProgress'
 import emailjs from '@emailjs/browser';
+import {v4, uuidv4} from "uuid"
 
 function App() {
 
@@ -88,7 +89,7 @@ function App() {
     const templateID = "template_lymv5jq"
 
     const templateParams = {
-      // userId: 
+      userId: uuidv4(),
       fullname: user.firstname.trim() + " " + (user.othername.trim() != "" ? user.othername.trim() + " " : "") + user.lastname.trim(),
       phonenum: user.phonenum,
       regnum: user.regnum
