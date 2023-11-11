@@ -180,7 +180,7 @@ function App() {
           <Typography variant="h4" color="initial" marginTop={-10} paddingBottom={1}>{error ? "Oops!!!" : "Congratutions,"}</Typography>
           <Typography variant="h5" color="initial">{error ? "An error occurred check your internet connection" : "You have completed the registration"}</Typography>
         </Card>}/>
-      <Card variant="outlined" sx={{color: "white", backgroundColor: "#3a43c0", width: "400px"}}></Card>
+      <Card variant="outlined" sx={{backgroundColor: "#3a43c0", width: "400px"}}></Card>
       <Card variant="outlined" sx={{color: "white", backgroundColor: "#d41d1d", padding: "1em", width: "calc(400px - 2em)"}} hidden={!(uniError)}>All fields with * are required</Card>
       <FormControl variant="outlined" color="success" error={fnError || uniError} fullWidth required>
         <InputLabel htmlFor="firstname">First Name</InputLabel>
