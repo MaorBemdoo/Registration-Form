@@ -35,6 +35,7 @@ function App() {
   const [lnError, setLnError] = useState(false)
   const [pnError, setPnError] = useState(false)
   const [rnError, setRnError] = useState(false)
+  const [valid, isValid] = useState(false)
   const fnRefContainer = useRef(null)
   const lnRefContainer = useRef(null)
   const pnRefContainer = useRef(null)
@@ -87,6 +88,7 @@ function App() {
         phonenum: "",
         regnum: ""
       })
+      isValid(true)
     }
   }
 
@@ -141,7 +143,7 @@ function App() {
   return (
     <Card component="form" method="post" variant="outlined" sx={CardStyle}>
       <GlobalStyles/>
-      <Modal open="true" children={
+      <Modal open={valid} onClose={() => isValid(false)} children={
         <Card variant="outlined" sx={{padding: "2rem", textAlign: "center", width: "400px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", overflow: "visible"}}>
           <CheckCircleOutline sx={{fontSize: "6rem", fill: "#0f7230", transform: "translateY(-100%)"}}/>
           <Typography variant="h4" color="initial" marginTop={-10} paddingBottom={1}>Congratulations,</Typography>
