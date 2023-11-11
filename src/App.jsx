@@ -205,7 +205,7 @@ function App() {
         <OutlinedInput id="regnum" label="Registration Number" ref={rnRefContainer} value={user.regnum} onChange={(e) => setUser({...user,regnum: e.target.value.toUpperCase()})} aria-describedby="regnum-text"/>
         <FormHelperText id="regnum-text" hidden={!(rnError)}>{regNumErrHandler(user.regnum)}</FormHelperText>
       </FormControl>
-      <Button variant="contained" color="success" type="submit" onClick={submitHandler} sx={{width: "100px"}}>{loading ? <CircularProgress color="inherit" size="1rem" thickness={5}/> : "Submit"}</Button>
+      <Button variant="contained" color="success" type="submit" onClick={submitHandler} sx={{width: "100px"}}>{!loading ? <CircularProgress color="inherit" size="1.3rem"/> : "Submit"}</Button>
     </Card>
   )
 }
