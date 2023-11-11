@@ -10,6 +10,8 @@ import FormLabel from '@mui/material/FormLabel'
 import Modal from '@mui/material/Modal'
 import {CheckCircleOutline} from "@mui/icons-material"
 import Typography from '@mui/material/Typography'
+import CircularProgress from '@mui/material/CircularProgress'
+import emailjs from '@emailjs/browser';
 
 function App() {
 
@@ -35,7 +37,9 @@ function App() {
   const [lnError, setLnError] = useState(false)
   const [pnError, setPnError] = useState(false)
   const [rnError, setRnError] = useState(false)
-  const [valid, isValid] = useState(false)
+  const [success, isSuccess] = useState(false)
+  const [loading, isLoading] = useState(false)
+  const [error, isError] = useState(false)
   const fnRefContainer = useRef(null)
   const lnRefContainer = useRef(null)
   const pnRefContainer = useRef(null)
@@ -78,6 +82,31 @@ function App() {
     return isValid
   }
 
+  const emailFunc = () => {
+    const publicKey = "SodAMZNmb3PKAwz9g"
+    const serviceID = "service_427nc5e"
+    const templateID = "template_lymv5jq"
+
+    const templateParams = {
+      // userId: 
+      fullname: user.firstname.trim() + " " + (user.othername.trim() != "" ? user.othername.trim() + " " : "") + user.lastname.trim(),
+      phonenum: user.phonenum,
+      regnum: user.regnum
+    }
+
+    emailjs.send(serviceID, templateID, templateParams, publicKey)
+      .then(() => {
+        isSuccess(true)
+        isLoading(false)
+        isError(false)
+      })
+      .catch(() => {
+        isSuccess(true)
+        isLoading(false)
+        isError(true)
+      })
+  }
+
   const submitHandler = (e) => {
     e.preventDefault()
     if(validForm()){
@@ -88,7 +117,8 @@ function App() {
         phonenum: "",
         regnum: ""
       })
-      isValid(true)
+      isLoading(true)
+      emailFunc()
     }
   }
 
@@ -143,9 +173,9 @@ function App() {
   return (
     <Card component="form" method="post" variant="outlined" sx={CardStyle}>
       <GlobalStyles/>
-      <Modal open={valid} onClose={() => isValid(false)} children={
+      <Modal open={success} onClose={() => isSuccess(false)} children={
         <Card variant="outlined" sx={{padding: "2rem", textAlign: "center", width: "400px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", overflow: "visible"}}>
-          <CheckCircleOutline sx={{fontSize: "6rem", fill: "#0f7230", transform: "translateY(-100%)"}}/>
+          {error ? : <CheckCircleOutline sx={{fontSize: "6rem", fill: "#0f7230", transform: "translateY(-100%)"}}/>}
           <Typography variant="h4" color="initial" marginTop={-10} paddingBottom={1}>Congratulations,</Typography>
           <Typography variant="h5" color="initial">You have completed the registration</Typography>
         </Card>}/>
@@ -175,7 +205,7 @@ function App() {
         <OutlinedInput id="regnum" label="Registration Number" ref={rnRefContainer} value={user.regnum} onChange={(e) => setUser({...user,regnum: e.target.value.toUpperCase()})} aria-describedby="regnum-text"/>
         <FormHelperText id="regnum-text" hidden={!(rnError)}>{regNumErrHandler(user.regnum)}</FormHelperText>
       </FormControl>
-      <Button variant="contained" color="success" type="submit" onClick={submitHandler}>Submit</Button>
+      <Button variant="contained" color="success" type="submit" onClick={submitHandler} sx={{width: "100px"}}>{loading ? <CircularProgress color="inherit" size="1rem" thickness={5}/> : "Submit"}</Button>
     </Card>
   )
 }
