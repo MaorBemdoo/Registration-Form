@@ -176,8 +176,8 @@ function App() {
       <Modal open={success} onClose={() => isSuccess(false)} children={
         <Card variant="outlined" sx={{padding: "2rem", textAlign: "center", width: "400px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", overflow: "visible"}}>
           {error ? <WarningOutlined color="error" sx={{fontSize: "6rem", transform: "translateY(-100%)"}}/> : <CheckCircleOutline sx={{fontSize: "6rem", fill: "#0f7230", transform: "translateY(-100%)"}}/>}
-          <Typography variant="h4" color="initial" marginTop={-10} paddingBottom={1}>Oops!!!</Typography>
-          <Typography variant="h5" color="initial">An error occurred check your internet connection</Typography>
+          <Typography variant="h4" color="initial" marginTop={-10} paddingBottom={1}>{error ? "Oops!!!" : "Congratutions,"}</Typography>
+          <Typography variant="h5" color="initial">{error ? "An error occurred check your internet connection" : "You have completed the registration"}</Typography>
         </Card>}/>
       <Card variant="outlined" sx={{color: "white", backgroundColor: "#3a43c0", width: "400px"}}></Card>
       <Card variant="outlined" sx={{color: "white", backgroundColor: "#d41d1d", padding: "1em", width: "calc(400px - 2em)"}} hidden={!(uniError)}>All fields with * are required</Card>
