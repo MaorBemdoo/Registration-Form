@@ -183,7 +183,7 @@ function App() {
       <GlobalStyles/>
       <Modal open={success} onClose={() => isSuccess(false)} children={
         <Card variant="outlined" sx={{padding: "2rem", textAlign: "center", width: "400px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", overflow: "visible"}}>
-          {error ? <ErrorOutline color="error" sx={{fontSize: "6rem", transform: "translateY(-100%)"}}/> : <CheckCircleOutline sx={{fontSize: "6rem", fill: "#0f7230", transform: "translateY(-100%)"}}/>}
+          {error ? <ErrorOutline color="error" sx={{fontSize: "6rem", transform: "translateY(-90%)"}}/> : <CheckCircleOutline sx={{fontSize: "6rem", fill: "#0f7230", transform: "translateY(-90%)"}}/>}
           <Typography variant="h4" color="initial" marginTop={-10} paddingBottom={1}>{error ? "Oops!!!" : "Congratutions,"}</Typography>
           <Typography variant="h5" color="initial">{error ? "An error occurred check your internet connection" : "You have completed the registration"}</Typography>
         </Card>}/>
