@@ -156,21 +156,24 @@ function App() {
       setPnError(false)
       setRnError(false)
     }
-    lnRefContainer.current.firstElementChild.onchange = () => {
+    lnRefContainer.current.firstElementChild.oninput = () => {
+      setUser({...user, lastname: lnRefContainer.current.firstElementChild.value})
       setUniError(false)
       setFnError(false)
       setLnError(false)
       setPnError(false)
       setRnError(false)
     }
-    pnRefContainer.current.firstElementChild.onchange = () => {
+    pnRefContainer.current.firstElementChild.oninput = () => {
+      setUser({...user, phonenum: pnRefContainer.current.firstElementChild.value})
       setUniError(false)
       setFnError(false)
       setLnError(false)
       setPnError(false)
       setRnError(false)
     }
-    rnRefContainer.current.firstElementChild.onchange = () => {
+    rnRefContainer.current.firstElementChild.oninput = () => {
+      setUser({...user, regnum: rnRefContainer.current.firstElementChild.value})
       setUniError(false)
       setFnError(false)
       setLnError(false)
