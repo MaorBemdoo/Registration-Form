@@ -148,35 +148,36 @@ function App() {
   }
 
   useEffect(() => {
-    fnRefContainer.current.onchange = () => {
+    fnRefContainer.current.firstElementChild.oninput = () => {
+      setUser({...user, firstname: fnRefContainer.current.firstElementChild.value})
       setUniError(false)
       setFnError(false)
       setLnError(false)
       setPnError(false)
       setRnError(false)
     }
-    lnRefContainer.current.onchange = () => {
+    lnRefContainer.current.firstElementChild.onchange = () => {
       setUniError(false)
       setFnError(false)
       setLnError(false)
       setPnError(false)
       setRnError(false)
     }
-    pnRefContainer.current.onchange = () => {
+    pnRefContainer.current.firstElementChild.onchange = () => {
       setUniError(false)
       setFnError(false)
       setLnError(false)
       setPnError(false)
       setRnError(false)
     }
-    rnRefContainer.current.onchange = () => {
+    rnRefContainer.current.firstElementChild.onchange = () => {
       setUniError(false)
       setFnError(false)
       setLnError(false)
       setPnError(false)
       setRnError(false)
     }
-  }, [])
+  }, [user.firstname, user.lastname, user.phonenum, user.regnum])
 
   return (
     <Card component="form" method="post" variant="outlined" sx={CardStyle}>
