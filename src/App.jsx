@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography'
 import CircularProgress from '@mui/material/CircularProgress'
 import emailjs from '@emailjs/browser';
 import {v4 as uuidv4} from "uuid"
+import { Resend } from 'resend';
 
 function App() {
 
@@ -84,19 +85,54 @@ function App() {
   }
 
   const emailFunc = () => {
-    const publicKey = "SodAMZNmb3PKAwz9g"
-    const serviceID = "service_427nc5e"
-    const templateID = "template_lymv5jq"
+    // const publicKey = "SodAMZNmb3PKAwz9g"
+    // const serviceID = "service_427nc5e"
+    // const templateID = "template_lymv5jq"
 
-    const templateParams = {
-      userId: uuidv4(),
-      fullname: user.firstname.trim() + " " + (user.othername.trim() != "" ? user.othername.trim() + " " : "") + user.lastname.trim(),
-      phonenum: user.phonenum,
-      regnum: user.regnum
-    }
+    // const templateParams = {
+    //   userId: uuidv4(),
+    //   fullname: user.firstname.trim() + " " + (user.othername.trim() != "" ? user.othername.trim() + " " : "") + user.lastname.trim(),
+    //   phonenum: user.phonenum,
+    //   regnum: user.regnum
+    // }
 
-    emailjs.send(serviceID, templateID, templateParams, publicKey)
-      .then(() => {
+    // emailjs.send(serviceID, templateID, templateParams, publicKey)
+    //   .then(() => {
+    //     isSuccess(true)
+    //     isLoading(false)
+    //     setUser({
+    //       firstname: "",
+    //       lastname: "",
+    //       othername: "",
+    //       phonenum: "",
+    //       regnum: ""
+    //     })
+    //     isError(false)
+    //   })
+    //   .catch(() => {
+    //     isSuccess(true)
+    //     isLoading(false)
+    //     setUser({
+    //       firstname: "",
+    //       lastname: "",
+    //       othername: "",
+    //       phonenum: "",
+    //       regnum: ""
+    //     })
+    //     isError(true)
+    //   })
+    const resend = new Resend('re_123456789');
+
+    (async function () {
+      try {
+        const data = await resend.emails.send({
+          from: 'Diceygramms.registration@form.com',
+          to: ['Diceygramms@gmail.com', 'bemdoo.maor1@gmail.com'],
+          subject: 'New message from Diceygramms Registration Form',
+          html: '<strong>It works!</strong>',
+        });
+
+        console.log(data);
         isSuccess(true)
         isLoading(false)
         setUser({
@@ -107,8 +143,8 @@ function App() {
           regnum: ""
         })
         isError(false)
-      })
-      .catch(() => {
+      } catch (error) {
+        console.error(error);
         isSuccess(true)
         isLoading(false)
         setUser({
@@ -119,7 +155,8 @@ function App() {
           regnum: ""
         })
         isError(true)
-      })
+      }
+    })()
   }
 
   const submitHandler = (e) => {
