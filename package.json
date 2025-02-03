@@ -13,7 +13,7 @@
     "@emailjs/browser": "^3.11.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.15.5",
+    "@mui/icons-material": "^6.4.2",
     "@mui/material": "^5.15.15",
     "axios": "^1.6.4",
     "react": "^18.2.0",
